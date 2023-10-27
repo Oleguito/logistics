@@ -29,19 +29,21 @@ public class Menu {
     public static void run() {
         
         MenuItem mainMenu = new MenuItem(MenuTitle.MAIN, () -> {});
+        
         MenuItem profileMenu = new MenuItem(MenuTitle.PROFILE, () -> {});
         MenuItem signInMenu = new MenuItem(MenuTitle.SIGN_IN, () -> {});
-        MenuItem addUserMenu = new MenuItem(MenuTitle.ADD_USER, () -> {});
-        
         MenuItem editAccountMenu = new MenuItem(MenuTitle.EDIT_ACCOUNT, () -> {});
         MenuItem deleteAccountMenu = new MenuItem(MenuTitle.DELETE_ACCOUNT, () -> {});
         MenuItem historyMenu = new MenuItem(MenuTitle.HISTORY, () -> {});
         MenuItem cargosMenu = new MenuItem(MenuTitle.CARGOS, () -> {});
         MenuItem trackingMenu = new MenuItem(MenuTitle.TRACKING, () -> {});
-        // MenuItem historyMenu = new MenuItem(MenuTitle.HISTORY, () -> {});
-        // MenuItem historyMenu = new MenuItem(MenuTitle.HISTORY, () -> {});
-        // MenuItem historyMenu = new MenuItem(MenuTitle.HISTORY, () -> {});
-        
+        MenuItem createCargoProfileMenu = new MenuItem(MenuTitle.CREATE_CARGO_PROFILE, () -> {});
+        MenuItem addEntryMenu = new MenuItem(MenuTitle.ADD_ENTRY, () -> {});
+        MenuItem editEntryMenu = new MenuItem(MenuTitle.EDIT_ENTRY, () -> {});
+        MenuItem deleteEntryMenu = new MenuItem(MenuTitle.DELETE_ENTRY, () -> {});
+        MenuItem editCargoProfileMenu = new MenuItem(MenuTitle.EDIT_CARGO_PROFILE, () -> {});
+        MenuItem deleteCargoProfileMenu = new MenuItem(MenuTitle.DELETE_CARGO_PROFILE, () -> {});
+        MenuItem addUserMenu = new MenuItem(MenuTitle.ADD_USER, () -> {});
         
         MenuItem exitMenu = new MenuItem(MenuTitle.EXIT, () -> {System.exit(0);});
         MenuItem backMenu = new MenuItem(MenuTitle.BACK, () -> {});
@@ -52,7 +54,33 @@ public class Menu {
         mainMenu.addSubMenu(exitMenu);
         
         /* Профиль */
-        profileMenu.addSubMenu();
+        profileMenu.addSubMenu(signInMenu);
+        profileMenu.addSubMenu(addUserMenu);
+        profileMenu.addSubMenu(backMenu);
+        profileMenu.addSubMenu(homeMenu);
+        
+        /* Войти */
+        signInMenu.addSubMenu(editAccountMenu);
+        signInMenu.addSubMenu(deleteAccountMenu);
+        signInMenu.addSubMenu(historyMenu);
+        signInMenu.addSubMenu(cargosMenu);
+        signInMenu.addSubMenu(backMenu);
+        signInMenu.addSubMenu(homeMenu);
+        
+        /* Грузы */
+        cargosMenu.addSubMenu(trackingMenu);
+        cargosMenu.addSubMenu(createCargoProfileMenu);
+        cargosMenu.addSubMenu(editCargoProfileMenu);
+        cargosMenu.addSubMenu(deleteCargoProfileMenu);
+        cargosMenu.addSubMenu(homeMenu);
+        cargosMenu.addSubMenu(backMenu);
+        
+        /* Создать профиль груза */
+        createCargoProfileMenu.addSubMenu(addEntryMenu);
+        createCargoProfileMenu.addSubMenu(editEntryMenu);
+        createCargoProfileMenu.addSubMenu(deleteEntryMenu);
+        createCargoProfileMenu.addSubMenu(homeMenu);
+        createCargoProfileMenu.addSubMenu(backMenu);
         
         MenuItem currentMenu = mainMenu;
         Stack <MenuItem> enteredMenus = new Stack <>();
