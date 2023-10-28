@@ -1,6 +1,7 @@
 package entities;
 
 import enums.MenuTitle;
+import service.Service;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -43,7 +44,7 @@ public class Menu {
         MenuItem deleteEntryMenu = new MenuItem(MenuTitle.DELETE_ENTRY, () -> {});
         MenuItem editCargoProfileMenu = new MenuItem(MenuTitle.EDIT_CARGO_PROFILE, () -> {});
         MenuItem deleteCargoProfileMenu = new MenuItem(MenuTitle.DELETE_CARGO_PROFILE, () -> {});
-        MenuItem addUserMenu = new MenuItem(MenuTitle.ADD_USER, () -> {});
+        MenuItem addUserMenu = new MenuItem(MenuTitle.ADD_USER, () -> {Service.addUser();});
         
         MenuItem exitMenu = new MenuItem(MenuTitle.EXIT, () -> {System.exit(0);});
         MenuItem backMenu = new MenuItem(MenuTitle.BACK, () -> {});
